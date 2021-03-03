@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Content from './content';
 
 import Input from './input';
 
@@ -35,7 +36,6 @@ class Card extends Component {
 //this is two-way binding and will show what you type in the input. changing the value of state.    
     handleInputChange(event) {
         this.setState({[event.target.name]: event.target.value })
-        console.log(this.state);
         }
 
 // what you change up there in set.State changes down here
@@ -73,6 +73,7 @@ class Card extends Component {
                 {
                     inputData.map(data => Input( (data), this.handleInputChange ))
                 }
+                <Content data={this.state}/>
             </div>
         )
     }
