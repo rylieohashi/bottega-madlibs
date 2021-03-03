@@ -3,33 +3,36 @@ import Content from './content';
 
 import Input from './input';
 
+const INITIAL_STATE = {
+        color: '',
+        pluralNoun: '',
+        adjectiveOne: '',
+        celebOne: '',
+
+        adjectiveTwo: '',
+        nounOne: '',
+        numberOne: '',
+        numberTwo: '',
+            
+        nounTwo: '',
+        adjectiveThree: '',
+        celebTwo: '',
+        celebThree: '',
+
+        adjectiveFour: '',
+        nounThree: '',
+        celebFour: '',
+        adjectiveFive: '',
+        contentVisible: false
+}
+
 class Card extends Component {
 
     constructor() {
         super()
 
-        this.state = {
-            color: '',
-            pluralNoun: '',
-            adjectiveOne: '',
-            celebOne: '',
+        this.state = INITIAL_STATE;
 
-            adjectiveTwo: '',
-            nounOne: '',
-            numberOne: '',
-            numberTwo: '',
-            
-            nounTwo: '',
-            adjectiveThree: '',
-            celebTwo: '',
-            celebThree: '',
-
-            adjectiveFour: '',
-            nounThree: '',
-            celebFour: '',
-            adjectiveFive: '',
-            contentVisible: false
-        }
 // we're taking our function and binding it to the instance in our class
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -40,9 +43,15 @@ class Card extends Component {
         this.setState({[event.target.name]: event.target.value })
         }
 
-    handleFormSubmit() {
+    handleFormSubmit(event) {
         event.preventDefault()
-        this.setState({ contentVisible: !this.state.contentVisible }) //exclamation point = "not" changes false to true
+
+        if(this.state.contentVisible) {
+            this.setState (INITIAL_STATE)
+        } else {
+            this.setState({ contentVisible: true }) //we don't want content visible if it's not visible
+        }
+        
     }
 
 // what you change up there in set.State changes down here
