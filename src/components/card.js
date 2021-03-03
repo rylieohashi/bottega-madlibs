@@ -27,16 +27,23 @@ class Card extends Component {
             adjectiveFour: '',
             nounThree: '',
             celebFour: '',
-            adjectiveFive: ''
+            adjectiveFive: '',
+            contentVisible: false
         }
 // we're taking our function and binding it to the instance in our class
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
 
 //this is two-way binding and will show what you type in the input. changing the value of state.    
     handleInputChange(event) {
         this.setState({[event.target.name]: event.target.value })
         }
+
+    handleFormSubmit() {
+        event.preventDefault()
+        this.setState({ contentVisible: !this.state.contentVisible }) //exclamation point = "not" changes false to true
+    }
 
 // what you change up there in set.State changes down here
 // you want to use state vs setState({}) so you don't get stuck in an infinite loop
@@ -69,12 +76,18 @@ class Card extends Component {
         ]
 
         return (
-            <div className="card"> 
+            //this was div className but we are changing it to form
+            <form onSubmit={this.handleFormSubmit} className="card"> 
+                <div className="card__inputs">
                 {
                     inputData.map(data => Input( (data), this.handleInputChange ))
                 }
-                <Content data={this.state}/>
-            </div>
+                </div>
+                <button type="submit">{!this.state.contentVisible ? 'Generate MadLib' : 'Clear Form'}</button>
+                {
+                    this.state.contentVisible ? <Content data={this.state}/> : <div>hello</div>
+                }
+            </form>
         )
     }
 }
