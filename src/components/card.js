@@ -54,7 +54,7 @@ class Card extends Component {
         
     }
 
-// what you change up there in set.State changes down here
+// what you change up there in setState changes down here
 // you want to use state vs setState({}) so you don't get stuck in an infinite loop
 // you can't set state inside of your constructor
 
