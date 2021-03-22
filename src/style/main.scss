@@ -78,7 +78,8 @@
 
 
 .card {
-    height: 736px;
+    min-height: 736px;
+    max-height: 994px;
     width: 1240px;
     box-shadow: 0 4px 30px 0 rgba(0, 0, 0, .06);
     border-radius: 7px;
@@ -86,6 +87,7 @@
     display:grid;
     grid-template-rows: 1fr 50px;
     background-color: white;
+    
     &__inputs {
         //background-color: skyblue;
         display: grid;
@@ -107,15 +109,16 @@
 
     button {
         justify-self: center;
-        transform: translateY(50%);
     }
 
     &__generate {
         background-color: #00cb79;
+        transform: translateY(-100px);
         @include button;
     }
 
     &__clear {
+        transform: translateY(80%);
         background-color: #45b0e5;
         @include button;
     }
