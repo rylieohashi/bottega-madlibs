@@ -9,6 +9,14 @@
     text-align: center;
 }
 
+.gray {
+    background: #b3b3b3;
+}
+
+.green {
+    background: #00cb79
+}
+
 .home {
     position: relative;
 
@@ -119,6 +127,23 @@
 
         justify-self: center;
         margin-bottom: 84px;
+
+        font-family: 'Montserrat';
+
+        &__label {
+            height: 18px;
+            width: 18px;
+            line-height: 22px;
+            background-color: black;
+            border-radius: 50%;
+            font-size: 14px;
+            
+            text-align: center;
+            color: white;
+            //padding-top: 3px;
+            display: inline-block;
+            margin: 4px; //added this to fix the oval shape
+        }
         
         p {
             padding: 50px 47px;
@@ -173,8 +198,6 @@
 
     &__number {
         grid-column: number-s/number-e;
-
-        background-color: #00cb79;
         color: white;
         font-size: 20px;
         line-height: 24px;
@@ -185,3 +208,4 @@
 
     }
 }
+
